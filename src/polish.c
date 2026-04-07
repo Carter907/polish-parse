@@ -7,7 +7,7 @@
 #include "stack.h"
 
 typedef struct operands_t {
-  int first; // second element off the stack
+  int first;  // second element off the stack
   int second; // first element off the stack
 
 } ops_t;
@@ -17,23 +17,22 @@ ops_t get_operands(stack_t *stk_ptr) {
   int op_2 = stack_pop(stk_ptr);
   int op_1 = stack_pop(stk_ptr);
 
-  return (ops_t){ .first = op_1, .second = op_2 };
+  return (ops_t){.first = op_1, .second = op_2};
 }
 
 int parse_rev_polish(char *input, size_t in_size) {
 
   stack_t *stk = stack_create();
 
-	ops_t ops = {0};
+  ops_t ops = {0};
 
   for (size_t i = 0; i < in_size; i++) {
-
 
     switch (input[i]) {
 
     case '+':
 
-			ops = get_operands(stk);
+      ops = get_operands(stk);
 
       stack_push(stk, ops.first + ops.second);
 
@@ -41,28 +40,28 @@ int parse_rev_polish(char *input, size_t in_size) {
 
     case '-':
 
-			ops = get_operands(stk);
+      ops = get_operands(stk);
 
       stack_push(stk, ops.first - ops.second);
 
       break;
     case '*':
 
-			ops = get_operands(stk);
+      ops = get_operands(stk);
 
       stack_push(stk, ops.first * ops.second);
 
       break;
     case '/':
 
-			ops = get_operands(stk);
+      ops = get_operands(stk);
 
       stack_push(stk, ops.first / ops.second);
 
       break;
     case '^':
 
-			ops = get_operands(stk);
+      ops = get_operands(stk);
 
       stack_push(stk, (int)pow(ops.first, ops.second));
 
