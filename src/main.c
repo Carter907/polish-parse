@@ -27,7 +27,7 @@ void interpret() {
     ssize_t rt = read_line(&ln);
 
     if (rt == -1) {
-      perror("readline()");
+      perror("readline");
       exit(EXIT_FAILURE);
     }
 
