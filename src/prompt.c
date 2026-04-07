@@ -1,4 +1,12 @@
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+
 #include "prompt.h"
+
+const char *SHELL_PROMPT_STR = "polish>";
 
 // precondition: ln must end in a '\n' character
 ssize_t read_line(char **ln) {

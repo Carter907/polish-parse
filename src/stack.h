@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 
-#define INITIAL_STACK_CAP (64)
+#define INITIAL_STACK_CAP (16)
 
 typedef struct stack_t {
 

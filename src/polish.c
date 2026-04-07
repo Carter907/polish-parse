@@ -6,6 +6,20 @@
 
 #include "stack.h"
 
+typedef struct operands_t {
+  int op1;
+  int op2;
+
+} operands_t;
+
+operands_t get_operands(stack_t *stk_ptr) {
+
+  int op_2 = stack_pop(stk_ptr);
+  int op_1 = stack_pop(stk_ptr);
+
+  return (operands_t){.op1 = op_1, .op2 = op_2};
+}
+
 int parse_rev_polish(char *input, size_t in_size) {
 
   stack_t *stk = stack_create();
@@ -103,6 +117,12 @@ int parse_rev_polish(char *input, size_t in_size) {
       break;
     };
   }
+  if (stk->top != 1) {
+    stack_destroy(stk);
+    fprintf(stderr, "invalid end state, check for valid notation\n");
+    exit(EXIT_FAILURE);
+  }
+
   int result = stack_pop(stk);
   stack_destroy(stk);
 
