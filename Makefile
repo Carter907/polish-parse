@@ -15,7 +15,7 @@ run: build
 
 build: $(SOURCES) 
 	mkdir -p $(BUILD_DIR)
-	$(CC) -o $(PROG) $(CFLAGS) $(SOURCES)
+	$(CC) -o $(PROG) $(CFLAGS) $(SOURCES) -lm
 	mv $(PROG) $(BUILD_DIR) 
 
 format:
